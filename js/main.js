@@ -682,4 +682,51 @@ var animateReveal = function() {
 
 
 
+// Countdown Timer
+function startCountdown() {
+  // Set the date we're counting down to (tomorrow at 9:30 AM)
+  const now = new Date();
+  const tomorrow = new Date(now);
+  tomorrow.setDate(now.getDate() + 1);
+  tomorrow.setHours(9, 30, 0, 0); // Set to 9:30 AM
 
+  const countDownDate = tomorrow.getTime();
+
+  // Update the count down every 1 second
+  const x = setInterval(function() {
+
+    // Get today's date and time
+    const now = new Date().getTime();
+
+    // Find the distance between now and the count down date
+    const distance = countDownDate - now;
+
+    // Time calculations for days, hours, minutes and seconds
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Display the result in the corresponding elements
+    if (document.getElementById("days")) {
+      document.getElementById("days").innerHTML = days + "<span class='label'>Days</span>";
+      document.getElementById("hours").innerHTML = hours + "<span class='label'>Hours</span>";
+      document.getElementById("minutes").innerHTML = minutes + "<span class='label'>Minutes</span>";
+      document.getElementById("seconds").innerHTML = seconds + "<span class='label'>Seconds</span>";
+    }
+
+
+    // If the count down is finished, write some text
+    if (distance < 0) {
+      clearInterval(x);
+      if (document.getElementById("countdown")) {
+        document.getElementById("countdown").innerHTML = "EXPIRED";
+      }
+    }
+  }, 1000);
+}
+
+// Call the countdown function when the document is ready
+$(document).ready(function() {
+  startCountdown();
+});
