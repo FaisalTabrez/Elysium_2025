@@ -2134,30 +2134,3 @@ span.error {
 
 
 
-
-.countdown-timer {
-  text-align: center;
-  margin: 2rem 0;
-}
-.timer-element {
-  display: inline-block;
-  font-size: 3.5rem;
-  font-weight: 700;
-  color: #fff;
-  margin: 0 20px;
-  font-family: "Poppins", sans-serif;
-  line-height: 1;
-}
-.timer-element .label {
-  display: block;
-  font-size: 0.9rem;
-  font-weight: 300;
-  color: rgba(255,255,255,0.7);
-  margin-top: 5px;
-}
-@media (max-width: 767.98px) {
-  .timer-element {
-    font-size: 2.0rem;
-    margin: 0 10px;
-  }
-}
